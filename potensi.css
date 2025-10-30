@@ -1,0 +1,361 @@
+/* ====== STYLE UMUM ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8fdf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ====== NAVBAR ====== */
+header {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua */
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  /* .container (width: 90%; max-width: 1200px; margin: auto;) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo & Judul --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo div {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0; 
+  line-height: 1.2;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #e0e0e0; /* Subtitle sedikit redup */
+  margin: 0;
+  font-weight: 400; 
+}
+
+/* --- Menu Navigasi (Desktop) --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efek hover transparan */
+}
+
+/* Style untuk link yang "active" */
+nav ul li a.active {
+  background-color: #fff;
+  color:rgb(194, 0, 0); /* Warna hijau saat aktif */
+}
+
+/* --- Tombol Hamburger (Mobile) --- */
+.menu-toggle {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* ====== STYLE RESPONSIVE (HP) ====== */
+@media (max-width: 768px) {
+  
+  /* 1. Sembunyikan menu desktop */
+  nav ul {
+    display: none; /* Sembunyikan menu utama */
+    
+    /* Atur agar jadi menu dropdown vertikal */
+    flex-direction: column;
+    background-color: rgb(194, 0, 0);
+    position: absolute;
+    top: 70px; /* Sesuaikan dengan tinggi header Anda */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style ini (nav ul.active) akan ditambahkan oleh JavaScript saat tombol diklik */
+  nav ul.active {
+    display: flex; /* Tampilkan menu! */
+  }
+  
+  /* 2. Tampilkan tombol hamburger */
+  .menu-toggle {
+    display: block; 
+  }
+
+  /* 3. Atur item menu di HP */
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Samakan style hover/active untuk HP */
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #fff;
+    color:rgb(194, 0, 0);
+  }
+}
+/* ===== BAGIAN UTAMA ===== */
+/* ====== POTENSI SECTION ====== */
+/* ====== BAGIAN GRID ====== */
+.potensi-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.potensi-title {
+  font-size: 2rem;
+  color: #c62828;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.potensi-sub {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.potensi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 30px;
+}
+
+.potensi-item {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.potensi-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.potensi-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.potensi-item h3 {
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ====== POPUP ====== */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.popup-content {
+  background: white;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+  animation: popupFade 0.3s ease;
+}
+
+.popup-content img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.popup-content h3 {
+  font-size: 1.4rem;
+  color: #b71c1c;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  color: #444;
+  line-height: 1.6;
+  max-height: 250px;
+  overflow-y: auto; /* biar bisa scroll kalau teks panjang */
+  text-align: justify;
+}
+
+/* Tombol close */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #d32f2f;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Animasi */
+@keyframes popupFade {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER
+=============================== */
+/* ===============================
+  FOOTER (STYLE YANG BENAR)
+=============================== */
+.footer {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua (sesuai gambar) */
+  color: #FFFFFF;           /* Warna teks putih */
+  padding: 40px 20px;      /* Jarak di dalam footer */
+}
+
+.footer-container {
+  max-width: 1100px; /* Lebar maksimum konten */
+  margin: 0 auto;    /* Menengahkan konten */
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column; /* MOBILE: Susun ke bawah (tumpuk) */
+  gap: 30px;              /* Jarak antar kolom saat ditumpuk */
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;       /* Ukuran judul (Alamat, Kontak) */
+  font-weight: 700;      /* Teks tebal */
+  margin: 0 0 15px 0;    /* Jarak bawah dari judul ke paragraf */
+}
+
+.footer-column p {
+  font-size: 0.95rem;      /* Ukuran teks biasa */
+  line-height: 1.6;      /* Jarak antar baris (spasi) */
+  margin: 0;
+}
+
+.footer-column a {
+  color: #FFFFFF;
+  text-decoration: none; /* Hilangkan garis bawah */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Tampilkan garis bawah saat mouse di atas */
+}
+
+.footer-divider {
+  border: none; /* Hapus style default */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Garis putih transparan */
+  margin: 30px 0; /* Jarak atas & bawah garis */
+}
+
+.footer-bottom {
+  text-align: center; /* Teks rata tengah */
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;     /* DESKTOP: Susun ke samping */
+    justify-content: space-between; /* Beri jarak antar kolom */
+    gap: 40px;                 /* Jarak antar kolom */
+  }
+
+  .footer-column {
+    flex: 1; /* Buat setiap kolom membagi ruang secara merata */
+  }
+}

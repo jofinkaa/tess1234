@@ -1,0 +1,359 @@
+/* ====== STYLE UMUM ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8fdf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+/* ====== NAVBAR ====== */
+header {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua */
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  /* .container (width: 90%; max-width: 1200px; margin: auto;) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo & Judul --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo div {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0; 
+  line-height: 1.2;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #e0e0e0; /* Subtitle sedikit redup */
+  margin: 0;
+  font-weight: 400; 
+}
+
+/* --- Menu Navigasi (Desktop) --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efek hover transparan */
+}
+
+/* Style untuk link yang "active" */
+nav ul li a.active {
+  background-color: #fff;
+  color: rgb(194, 0, 0); /* Warna hijau saat aktif */
+}
+
+/* --- Tombol Hamburger (Mobile) --- */
+.menu-toggle {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* ====== STYLE RESPONSIVE (HP) ====== */
+@media (max-width: 768px) {
+  
+  /* 1. Sembunyikan menu desktop */
+  nav ul {
+    display: none; /* Sembunyikan menu utama */
+    
+    /* Atur agar jadi menu dropdown vertikal */
+    flex-direction: column;
+    background-color: rgb(194, 0, 0);
+    position: absolute;
+    top: 70px; /* Sesuaikan dengan tinggi header Anda */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style ini (nav ul.active) akan ditambahkan oleh JavaScript saat tombol diklik */
+  nav ul.active {
+    display: flex; /* Tampilkan menu! */
+  }
+  
+  /* 2. Tampilkan tombol hamburger */
+  .menu-toggle {
+    display: block; 
+  }
+
+  /* 3. Atur item menu di HP */
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Samakan style hover/active untuk HP */
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #fff;
+    color: rgb(194, 0, 0);
+  }
+}
+
+
+
+/* ====== GALERI DESA SECTION ====== */
+
+.gallery {
+  padding: 60px 0; /* Jarak atas/bawah section */
+  background-color: #f8fdf8; /* Background abu-abu muda jika perlu */
+}
+
+/* --- Styling Header Galeri --- */
+.gallery-header {
+  margin-bottom: 40px;
+  text-align: left; /* Teks rata kiri */
+}
+
+.gallery-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b7034; /* Warna hijau tua */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative; /* Untuk garis di bawah */
+  display: inline-block; /* Agar garis pas dengan teks */
+  padding-bottom: 8px; /* Jarak teks ke garis */
+}
+
+/* Garis hijau di bawah judul */
+.gallery-header h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px; /* Panjang garis */
+  height: 5px; /* Tebal garis */
+  background-color: #0b7034; /* Warna hijau */
+}
+
+.gallery-header p {
+  font-size: 1rem;
+  color: #555; /* Warna abu-abu tua */
+  margin-top: 10px; /* Jarak dari judul */
+}
+
+/* --- Styling Grid Gambar --- */
+.gallery-grid {
+  display: grid;
+  /* Desktop: 4 kolom */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 15px; /* Jarak antar gambar */
+}
+
+.gallery-item {
+  overflow: hidden; /* Agar gambar tidak keluar dari kotak */
+  border-radius: 8px; /* Sudut sedikit melengkung */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+.gallery-item img {
+  display: block; /* Menghilangkan spasi bawah default img */
+  width: 100%; /* Gambar memenuhi lebar kotak */
+  height: 200px; /* Atur tinggi gambar (sesuaikan) */
+  object-fit: cover; /* Crop gambar agar pas tanpa distorsi */
+  transition: transform 0.3s ease; /* Efek zoom saat hover */
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05); /* Sedikit zoom saat kursor di atas */
+}
+
+
+/* ====== PENYESUAIAN TAMPILAN HP (RESPONSIVE) ====== */
+
+/* Tablet Kecil & HP Besar */
+@media (max-width: 992px) {
+  .gallery-grid {
+    /* Ubah jadi 3 kolom */
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+/* HP */
+@media (max-width: 768px) {
+  .gallery-header {
+    text-align: center; /* Judul rata tengah di HP */
+  }
+
+  /* Pusatkan garis hijau di bawah judul */
+  .gallery-header h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .gallery-grid {
+    /* Ubah jadi 2 kolom */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; /* Perkecil jarak */
+  }
+
+  .gallery-item img {
+     height: 150px; /* Perkecil tinggi gambar di HP */
+  }
+}
+
+/* HP Sangat Kecil (jika perlu) */
+/* @media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; // Ubah jadi 1 kolom
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER
+=============================== */
+/* ===============================
+  FOOTER (STYLE YANG BENAR)
+=============================== */
+.footer {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua (sesuai gambar) */
+  color: #FFFFFF;           /* Warna teks putih */
+  padding: 40px 20px;      /* Jarak di dalam footer */
+}
+
+.footer-container {
+  max-width: 1100px; /* Lebar maksimum konten */
+  margin: 0 auto;    /* Menengahkan konten */
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column; /* MOBILE: Susun ke bawah (tumpuk) */
+  gap: 30px;              /* Jarak antar kolom saat ditumpuk */
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;       /* Ukuran judul (Alamat, Kontak) */
+  font-weight: 700;      /* Teks tebal */
+  margin: 0 0 15px 0;    /* Jarak bawah dari judul ke paragraf */
+}
+
+.footer-column p {
+  font-size: 0.95rem;      /* Ukuran teks biasa */
+  line-height: 1.6;      /* Jarak antar baris (spasi) */
+  margin: 0;
+}
+
+.footer-column a {
+  color: #FFFFFF;
+  text-decoration: none; /* Hilangkan garis bawah */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Tampilkan garis bawah saat mouse di atas */
+}
+
+.footer-divider {
+  border: none; /* Hapus style default */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Garis putih transparan */
+  margin: 30px 0; /* Jarak atas & bawah garis */
+}
+
+.footer-bottom {
+  text-align: center; /* Teks rata tengah */
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;     /* DESKTOP: Susun ke samping */
+    justify-content: space-between; /* Beri jarak antar kolom */
+    gap: 40px;                 /* Jarak antar kolom */
+  }
+
+  .footer-column {
+    flex: 1; /* Buat setiap kolom membagi ruang secara merata */
+  }
+}

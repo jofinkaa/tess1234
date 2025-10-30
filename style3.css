@@ -1,0 +1,742 @@
+/* ====== STYLE UMUM ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8fdf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ====== NAVBAR ====== */
+header {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua */
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  /* .container (width: 90%; max-width: 1200px; margin: auto;) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo & Judul --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo div {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0; 
+  line-height: 1.2;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #e0e0e0; /* Subtitle sedikit redup */
+  margin: 0;
+  font-weight: 400; 
+}
+
+/* --- Menu Navigasi (Desktop) --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efek hover transparan */
+}
+
+/* Style untuk link yang "active" */
+nav ul li a.active {
+  background-color: #fff;
+  color: #E53935; /* Warna hijau saat aktif */
+}
+
+/* --- Tombol Hamburger (Mobile) --- */
+.menu-toggle {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* ====== STYLE RESPONSIVE (HP) ====== */
+@media (max-width: 768px) {
+  
+  /* 1. Sembunyikan menu desktop */
+  nav ul {
+    display: none; /* Sembunyikan menu utama */
+    
+    /* Atur agar jadi menu dropdown vertikal */
+    flex-direction: column;
+    background-color: #E53935;
+    position: absolute;
+    top: 70px; /* Sesuaikan dengan tinggi header Anda */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style ini (nav ul.active) akan ditambahkan oleh JavaScript saat tombol diklik */
+  nav ul.active {
+    display: flex; /* Tampilkan menu! */
+  }
+  
+  /* 2. Tampilkan tombol hamburger */
+  .menu-toggle {
+    display: block; 
+  }
+
+  /* 3. Atur item menu di HP */
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Samakan style hover/active untuk HP */
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #fff;
+    color: rgb(194, 0, 0);
+  }
+}
+
+/* ====== DEMOGRAFI PENDUDUK ====== */
+.demografi {
+  padding: 60px 0;
+  background-color: #fff; /* Background putih untuk section ini */
+}
+
+/* Header (Judul & Ilustrasi) */
+.demografi-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom */
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.demografi-header-teks h2 {
+  font-size: 2rem;
+  color: #E53935; /* Warna merah */
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.demografi-header-teks p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+
+/* Subjudul Grid */
+.demografi-subjudul h2 {
+  font-size: 1.8rem;
+  color: #E53935; /* Warna merah */
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Grid Statistik */
+.demografi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom */
+  gap: 20px; /* Jarak antar kotak */
+}
+
+.demografi-box {
+  display: flex; /* Icon dan Teks berdampingan */
+  align-items: center; /* Sejajar di tengah */
+  gap: 20px; /* Jarak antara icon dan teks */
+  padding: 25px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0; /* Border abu-abu sangat muda */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bayangan sangat halus */
+  transition: all 0.3s ease;
+}
+
+.demografi-box:hover {
+  transform: translateY(-5px); /* Efek terangkat */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.demografi-icon img {
+  width: 80px; /* Ukuran icon */
+  height: 80px;
+  object-fit: contain;
+}
+
+.data-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #777;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.data-nilai {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333; /* Warna "Jiwa" */
+  margin: 0;
+}
+
+.data-angka {
+  font-weight: 700;
+  color: #E53935; /* Warna merah untuk angka */
+  margin-right: 8px; /* Jarak antara angka dan "Jiwa" */
+}
+
+/* Penyesuaian untuk layar HP (Mobile) */
+@media (max-width: 992px) {
+  .demografi-header {
+    grid-template-columns: 1fr; /* Tumpuk 1 kolom */
+    text-align: center;
+  }
+  .demografi-header-img img {
+    margin: 20px auto 0 auto; /* Posisikan gambar di tengah */
+  }
+}
+
+@media (max-width: 768px) {
+  .demografi-grid {
+    grid-template-columns: 1fr; /* Tumpuk 1 kolom */
+  }
+  .demografi-box {
+    flex-direction: column; /* Pusatkan konten di mobile */
+    text-align: center;
+  }
+}
+/* === TENGAHKAN BOX JUMLAH RUMAH === */
+.jumlah-rumah {
+  margin: 25px auto;
+  justify-content: center;
+  width: 400px; /* Sedikit lebih kecil dari total lebar grid */
+}
+/* ====== PIRAMIDA PENDUDUK ====== */
+/* Styling untuk wadah chart secara umum agar responsif */
+.piramida-chart-container {
+  position: relative; /* Penting untuk Chart.js responsive */
+  height: 400px; /* Tinggi default untuk desktop */
+  width: 100%;
+  max-width: 900px; /* Batasi lebar maksimal */
+  margin: 20px auto; /* Tengahkan wadah chart */
+  padding: 15px; /* Padding internal */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+}
+
+/* Sesuaikan tinggi wadah untuk HP */
+@media (max-width: 768px) {
+  .piramida-chart-container {
+    height: 600px; /* Beri tinggi lebih di HP karena label umur mungkin lebih rapat */
+    margin: 15px auto;
+    padding: 10px;
+  }
+}
+
+/* ====== DUSUN CHART ====== */
+.dusun-chart {
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 40px; /* Jarak dari bagan piramida */
+  margin-bottom: 60px; /* Jarak ke footer */
+}
+
+.dusun-judul {
+  margin-bottom: 30px;
+}
+
+.dusun-judul h2 {
+  font-size: 2rem;
+  color: #E53935; /* Warna merah */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dusun-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Bagan 2x lebih besar dari keterangan */
+  gap: 40px;
+  align-items: center;
+}
+
+.chart-pie-container {
+  position: relative; /* Wajib untuk Chart.js */
+  width: 100%;
+  max-width: 450px; /* Batasi lebar maks */
+  margin: auto;
+  
+  /* Atur tinggi agar proporsional */
+  height: 350px; 
+}
+
+
+.chart-legend h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.chart-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chart-legend li {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Di HP, beri tinggi sedikit lebih banyak untuk ruang legenda di bawah */
+@media (max-width: 768px) {
+  .chart-pie-container {
+    height: 400px; 
+  }
+}
+
+/* ====== BERDASARKAN PERKAWINAN ====== */
+.perkawinan {
+  padding: 40px 0 60px 0;
+  background-color: #f8fdf8;
+}
+
+.perkawinan-judul {
+  margin-bottom: 30px;
+}
+
+.perkawinan-judul h2 {
+  font-size: 2rem;
+  color: #E53935; /* Warna merah */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.perkawinan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.perkawinan-box {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.perkawinan-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.perkawinan-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.perkawinan-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.perkawinan-data {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #E53935;
+  margin: 0;
+}
+
+/* ====== BERDASARKAN AGAMA ====== */
+.agama {
+  padding: 40px 0 60px 0;
+  background-color: #f8fdf8;
+}
+
+.agama-judul {
+  margin-bottom: 30px;
+}
+
+.agama-judul h2 {
+  font-size: 2rem;
+  color: #E53935; /* Warna merah */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.agama-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.agama-box {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.agama-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.agama-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.agama-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.agama-data {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #E53935;
+  margin: 0;
+}
+berdasarkan umurr
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Bagian judul untuk setiap section */
+.umur-judul {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.umur-judul h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Area diagram */
+.chart-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+/* Penyesuaian tinggi untuk HP */
+@media (max-width: 768px) {
+  .chart-bar-container {
+    /* Beri tinggi yang pas di HP */
+    height: 400px; 
+    padding: 10px;
+  }
+}
+/* ====== BERDASARKAN PENDIDIKAN ====== */
+/* Sesuaikan wadah untuk Pie Chart */
+/* Styling untuk wadah bagan pendidikan */
+.chart-bar-container {
+  position: relative;
+  /* Atur tinggi untuk desktop */
+  height: 450px; 
+  width: 100%;
+  max-width: 900px; /* Boleh lebar di desktop */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+}
+
+/* Penyesuaian tinggi untuk HP */
+@media (max-width: 768px) {
+  .chart-bar-container {
+    /* Beri tinggi yang pas di HP */
+    height: 400px; 
+    padding: 10px;
+  }
+}
+/* ====== BAGIAN DIAGRAM UMUR ====== */
+/* === CARD UTAMA === */
+.umur-chart.container {
+  width: 95%;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* === JUDUL === */
+.umur-judul {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.stats-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e53935;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* === AREA DIAGRAM === */
+.chart-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .chart-bar-container {
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-bar-container {
+    height: 380px;
+  }
+}
+
+/* ====== BERDASARKAN PEKERJAAN ====== */
+/* CATATAN: Style 'body' yang berkonflik telah dihapus dari sini */
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-title {
+  color: #E53935;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.stats-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.job-list {
+  flex: 1;
+  min-width: 300px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(212, 22, 22, 0.05);
+}
+
+.job-list-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #c7c7c7;
+  color: #333;
+  font-weight: 600;
+  padding: 14px 20px;
+}
+
+.job-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #F0F0F0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.job-list-item:last-child {
+  border-bottom: none;
+}
+
+.job-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+@media (max-width: 768px) {
+  
+  /* Beri tinggi lebih untuk Piramida di HP.
+    Ini penting agar bar horizontal tidak terlalu tipis.
+  */
+  .piramida-chart-container {
+    height: 500px; /* Anda bisa ubah tingginya (mis: 600px) */
+    padding: 10px;
+  }
+
+  /* Beri tinggi lebih untuk Bagan Pendidikan di HP.
+  */
+  .chart-bar-container {
+    height: 450px; /* Anda bisa ubah tingginya */
+    padding: 10px;
+  }
+}
+
+/* ===============================
+  FOOTER (STYLE YANG BENAR)
+=============================== */
+.footer {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua (sesuai gambar) */
+  color: #FFFFFF;           /* Warna teks putih */
+  padding: 40px 20px;      /* Jarak di dalam footer */
+}
+
+.footer-container {
+  max-width: 1100px; /* Lebar maksimum konten */
+  margin: 0 auto;    /* Menengahkan konten */
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column; /* MOBILE: Susun ke bawah (tumpuk) */
+  gap: 30px;              /* Jarak antar kolom saat ditumpuk */
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;       /* Ukuran judul (Alamat, Kontak) */
+  font-weight: 700;      /* Teks tebal */
+  margin: 0 0 15px 0;    /* Jarak bawah dari judul ke paragraf */
+}
+
+.footer-column p {
+  font-size: 0.95rem;      /* Ukuran teks biasa */
+  line-height: 1.6;      /* Jarak antar baris (spasi) */
+  margin: 0;
+}
+
+.footer-column a {
+  color: #FFFFFF;
+  text-decoration: none; /* Hilangkan garis bawah */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Tampilkan garis bawah saat mouse di atas */
+}
+
+.footer-divider {
+  border: none; /* Hapus style default */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Garis putih transparan */
+  margin: 30px 0; /* Jarak atas & bawah garis */
+}
+
+.footer-bottom {
+  text-align: center; /* Teks rata tengah */
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;     /* DESKTOP: Susun ke samping */
+    justify-content: space-between; /* Beri jarak antar kolom */
+    gap: 40px;                 /* Jarak antar kolom */
+  }
+
+  .footer-column {
+    flex: 1; /* Buat setiap kolom membagi ruang secara merata */
+  }
+}

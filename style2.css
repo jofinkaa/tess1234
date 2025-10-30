@@ -1,0 +1,509 @@
+/* ====== STYLE UMUM ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8fdf8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ====== NAVBAR ====== */
+header {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua */
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  /* .container (width: 90%; max-width: 1200px; margin: auto;) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo & Judul --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.logo div {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0; 
+  line-height: 1.2;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #e0e0e0; /* Subtitle sedikit redup */
+  margin: 0;
+  font-weight: 400; 
+}
+
+/* --- Menu Navigasi (Desktop) --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efek hover transparan */
+}
+
+/* Style untuk link yang "active" */
+nav ul li a.active {
+  background-color: #fff;
+  color: #D90000; /* Warna hijau saat aktif */
+}
+
+/* --- Tombol Hamburger (Mobile) --- */
+.menu-toggle {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+/* ====== STYLE RESPONSIVE (HP) ====== */
+@media (max-width: 768px) {
+  
+  /* 1. Sembunyikan menu desktop */
+  nav ul {
+    display: none; /* Sembunyikan menu utama */
+    
+    /* Atur agar jadi menu dropdown vertikal */
+    flex-direction: column;
+    background-color: #D90000;
+    position: absolute;
+    top: 70px; /* Sesuaikan dengan tinggi header Anda */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style ini (nav ul.active) akan ditambahkan oleh JavaScript saat tombol diklik */
+  nav ul.active {
+    display: flex; /* Tampilkan menu! */
+  }
+  
+  /* 2. Tampilkan tombol hamburger */
+  .menu-toggle {
+    display: block; 
+  }
+
+  /* 3. Atur item menu di HP */
+  nav ul li {
+    width: 100%;
+  }
+  
+  nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Samakan style hover/active untuk HP */
+  nav ul li a:hover,
+  nav ul li a.active {
+    background-color: #fff;
+    color: #D90000;
+  }
+}
+/* ====== VISI MISI ====== */
+.visi-misi {
+  padding: 60px 0;
+  background-color: #fff5f5; /* Latar belakang pink muda */
+}
+
+.vm-box {
+  background-color: #ffffff; /* Kotak putih */
+  padding: 30px 40px; /* Jarak di dalam kotak */
+  border-radius: 12px; /* Sudut melengkung */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Bayangan halus */
+}
+
+.vm-box h2 {
+  text-align: center; /* Teks "Visi" / "Misi" di tengah */
+  font-size: 2.2rem; /* Ukuran font */
+  color: #d90000; /* Warna merah tua */
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Khusus untuk paragraf Visi */
+.vm-box p {
+  text-align: center; /* Teks Visi di tengah */
+  text-transform: uppercase; /* Huruf kapital semua */
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Khusus untuk daftar Misi */
+.vm-box ol {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8; /* Jarak antar baris */
+  padding-left: 25px; /* Memberi ruang untuk nomor */
+}
+
+.vm-box ol li {
+  margin-bottom: 12px; /* Jarak antar poin misi */
+  padding-left: 8px; /* Jarak antara nomor dan teks */
+}
+.bagan-desa {
+  padding: 40px;
+  margin-top: 40px; /* Jarak dari header */
+  margin-bottom: 60px; /* Jarak ke footer */
+  background-color: #fff; /* Latar belakang putih */
+  border-radius: 12px; /* Sudut melengkung */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Bayangan */
+}
+
+.bagan-judul {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Garis pemisah */
+}
+
+.bagan-judul h2 {
+  font-size: 2.2rem;
+  color: #D90000; /* Warna merah tua */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bagan-judul p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Kontainer untuk gambar bagan */
+/* Kontainer untuk gambar bagan (sudah responsive) */
+.bagan-gambar {
+  width: 100%;
+  overflow-x: auto; /* Jika bagan terlalu lebar, bisa di-scroll */
+  -webkit-overflow-scrolling: touch; /* Scroll lebih halus di iOS */
+  padding-bottom: 10px; /* Beri sedikit ruang di bawah scrollbar */
+}
+
+.bagan-gambar img {
+  display: block;    /* Menghilangkan spasi ekstra di bawah gambar */
+  max-width: none;   /* Membolehkan gambar lebih lebar dari containernya */
+  
+  /* --- KUNCI UTAMA UNTUK UKURAN --- */
+  /* Atur lebar gambar untuk desktop. Gambar aslinya kemungkinan sudah cukup besar. */
+  /* min-width: 1000px; /* Contoh: Set minimal 1000px di desktop. Sesuaikan! */
+  width: 100%; /* Default ke 100% lebar wadah */
+
+  height: auto;      /* Menjaga rasio aspek gambar */
+  border-radius: 8px;
+  margin: 0 auto;    /* Menengahkan gambar */
+}
+
+/* --- PENYESUAIAN KHUSUS UNTUK HP --- */
+@media (max-width: 768px) {
+  .bagan-gambar img {
+    /* min-width: 900px; /* Contoh: Di HP, set minimal 900px. Ini akan memicu scroll. */
+    width: 150%; /* <<== Coba nilai ini dulu. Misalnya 150% atau 180% */
+                  /* Ini akan membuat gambar 1.5x lebih lebar dari wadahnya */
+    max-width: none; /* Pastikan tidak ada batasan max-width */
+  }
+}
+
+/* Penyesuaian padding di HP */
+@media (max-width: 768px) {
+  .bagan-desa {
+    padding: 30px 15px; /* Kurangi padding di HP */
+  }
+}
+/* ====== SEJARAH DESA (VERSI FOTO) ====== */
+.sejarah {
+  padding: 50px 70px;
+}
+
+.sejarah h1 {
+  color: #c40000;
+  font-size: 2.3em;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.col-left {
+  flex: 1;
+}
+
+.col-left img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.col-right {
+  flex: 1;
+  text-align: justify;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-right {
+    margin-top: 20px;
+  }
+}
+/* ====== PETA LOKASI DESA ====== */
+.peta-lokasi {
+  padding: 40px 0 60px 0;
+  /* Menggunakan warna background body */
+  background-color: #f8fdf8; 
+}
+
+.peta-lokasi-judul {
+  margin-bottom: 30px;
+}
+
+.peta-lokasi-judul h2 {
+  font-size: 2rem;
+  color: #D90000; /* Warna merah tua */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Grid untuk info box dan peta */
+.peta-lokasi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom sama besar */
+  gap: 30px;
+  align-items: flex-start; /* Konten sejajar di atas */
+}
+
+/* Kotak Info di Kiri */
+.info-lokasi-box {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  padding: 15px 30px; /* Padding atas-bawah lebih kecil */
+}
+
+.info-item {
+  display: flex; /* Mengatur item berdampingan */
+  flex-wrap: wrap; /* Izinkan wrap jika di mobile */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee; /* Garis pemisah */
+}
+.info-item:last-child {
+  border-bottom: none; /* Hapus garis di item terakhir */
+}
+
+.info-lokasi-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-lokasi-data {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+  text-align: right;
+}
+
+/* Style khusus untuk 'Batas Desa' */
+.info-item.batas-desa {
+  display: block; /* Buat 'Batas Desa' jadi tumpuk */
+}
+
+.batas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom di dalam 'Batas Desa' */
+  gap: 15px 20px;
+  margin-top: 15px; /* Jarak dari label 'Batas Desa' */
+}
+
+.batas-grid strong {
+  font-size: 0.9rem;
+  color: #555;
+  display: block;
+}
+
+.batas-grid p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 5px 0 0 0;
+}
+
+/* Peta di Kanan */
+.peta-lokasi-map iframe {
+  width: 100%;
+  height: 450px; /* Samakan tinggi peta */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* Penyesuaian untuk layar HP (Mobile) */
+@media (max-width: 992px) { /* Breakpoint lebih besar agar rapi */
+  .peta-lokasi-grid {
+    grid-template-columns: 1fr; /* Tumpuk menjadi 1 kolom */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER
+=============================== */
+/* ===============================
+  FOOTER (STYLE YANG BENAR)
+=============================== */
+.footer {
+  background-color: rgb(194, 0, 0); /* Warna hijau tua (sesuai gambar) */
+  color: #FFFFFF;           /* Warna teks putih */
+  padding: 40px 20px;      /* Jarak di dalam footer */
+}
+
+.footer-container {
+  max-width: 1100px; /* Lebar maksimum konten */
+  margin: 0 auto;    /* Menengahkan konten */
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column; /* MOBILE: Susun ke bawah (tumpuk) */
+  gap: 30px;              /* Jarak antar kolom saat ditumpuk */
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;       /* Ukuran judul (Alamat, Kontak) */
+  font-weight: 700;      /* Teks tebal */
+  margin: 0 0 15px 0;    /* Jarak bawah dari judul ke paragraf */
+}
+
+.footer-column p {
+  font-size: 0.95rem;      /* Ukuran teks biasa */
+  line-height: 1.6;      /* Jarak antar baris (spasi) */
+  margin: 0;
+}
+
+.footer-column a {
+  color: #FFFFFF;
+  text-decoration: none; /* Hilangkan garis bawah */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Tampilkan garis bawah saat mouse di atas */
+}
+
+.footer-divider {
+  border: none; /* Hapus style default */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Garis putih transparan */
+  margin: 30px 0; /* Jarak atas & bawah garis */
+}
+
+.footer-bottom {
+  text-align: center; /* Teks rata tengah */
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;     /* DESKTOP: Susun ke samping */
+    justify-content: space-between; /* Beri jarak antar kolom */
+    gap: 40px;                 /* Jarak antar kolom */
+  }
+
+  .footer-column {
+    flex: 1; /* Buat setiap kolom membagi ruang secara merata */
+  }
+}
