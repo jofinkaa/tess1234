@@ -153,7 +153,7 @@ nav ul li a.active {
 }
 /* ====== HERO SECTION ====== */
 .hero {
-  background: url('../assets/WhatsApp\ Image\ 2025-10-20\ at\ 15.44.38_24b3693e.jpg') center/cover no-repeat;
+  background: url('WhatsApp\ Image\ 2025-10-20\ at\ 15.44.38_24b3693e.jpg') center/cover no-repeat;
   height: 70vh;
   display: flex;
   align-items: center;
@@ -587,4 +587,5 @@ potensi
   .footer-column {
     flex: 1; /* Buat setiap kolom membagi ruang secara merata */
   }
+
 }
